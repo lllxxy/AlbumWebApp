@@ -2,3 +2,19 @@
     width: 700px;
     margin: 0 auto;
 }
+
+
+.button_login{
+    width: 700px;
+    margin: 0 auto;
+}
+
+
+.btn.btn-primary{
+    width:200px;
+}
+
+.alert.alert-danger{
+    width: 700px;
+    margin: 0 auto;
+}

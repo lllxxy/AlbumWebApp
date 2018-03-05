@@ -8,70 +8,17 @@
 
 {% block main %}
 <div class="row">
-  <div class="col-sm-6 col-md-1">
-    <div class="thumbnail">
-      <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="Add Album">
-      <div class="caption">
-        <h3><input type="text" class="form-control" placeholder="New Album Name" name="NewAlbum"></h3>
-        <input type="text" class="form-control" placeholder="Descriable..." name="descriable">
-        <h3 class="text-center"><a href="#" class="btn btn-primary" role="button">Create</a></h3>
+  <form name="CreateAlbum" method="POST">
+    <div class="col-sm-6 col-md-1">
+      <div class="thumbnail">
+        <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="Add Album">
+        <div class="caption">
+          <h3><input type="text" class="form-control" placeholder="New Album Name" name="AlbumName"></h3>
+          <input type="text" class="form-control" placeholder="Descriable..." name="Description">
+          <h3 class="text-center"><button class="btn btn-primary" role="button">Create</button></h3>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="col-sm-6 col-md-1">
-    <div class="thumbnail">
-      <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="Add Album">
-      <div class="caption">
-        <h3><input type="text" class="form-control" placeholder="New Album Name" name="NewAlbum"></h3>
-        <input type="text" class="form-control" placeholder="Descriable..." name="descriable">
-        <h3 class="text-center"><a href="#" class="btn btn-primary" role="button">Create</a></h3>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 col-md-1">
-    <div class="thumbnail">
-      <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="Add Album">
-      <div class="caption">
-        <h3><input type="text" class="form-control" placeholder="New Album Name" name="NewAlbum"></h3>
-        <input type="text" class="form-control" placeholder="Descriable..." name="descriable">
-        <h3 class="text-center"><a href="#" class="btn btn-primary" role="button">Create</a></h3>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 col-md-1">
-    <div class="thumbnail">
-      <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="Add Album">
-      <div class="caption">
-        <h3><input type="text" class="form-control" placeholder="New Album Name" name="NewAlbum"></h3>
-        <input type="text" class="form-control" placeholder="Descriable..." name="descriable">
-        <h3 class="text-center"><a href="#" class="btn btn-primary" role="button">Create</a></h3>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 col-md-1">
-    <div class="thumbnail">
-      <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="Add Album">
-      <div class="caption">
-        <h3><input type="text" class="form-control" placeholder="New Album Name" name="NewAlbum"></h3>
-        <input type="text" class="form-control" placeholder="Descriable..." name="descriable">
-        <h3 class="text-center"><a href="#" class="btn btn-primary" role="button">Create</a></h3>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 col-md-1">
-    <div class="thumbnail">
-      <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="Add Album">
-      <div class="caption">
-        <h3><input type="text" class="form-control" placeholder="New Album Name" name="NewAlbum"></h3>
-        <input type="text" class="form-control" placeholder="Descriable..." name="descriable">
-        <h3 class="text-center"><a href="#" class="btn btn-primary" role="button">Create</a></h3>
-      </div>
-    </div>
-  </div>
+  </form>
 </div>
 {% endblock %}

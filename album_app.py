@@ -20,11 +20,18 @@ def md5hex(password):
     m.update(password)
     return m.hexdigest()
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
-    user = User.query.filter(User.email == session.get('email')).first()
-    return render_template('index.html',user=user)
+    if request.method == 'GET':
+        user = User.query.filter(User.email == session.get('email')).first()
+        return render_template('index.html',user=user)
+    elif request.method == 'POST':
+        AlbumName = request.form.get('AlbumName')
+        Description = request.form.get('Description')
+        return u'AlbumName: %s; Description: %s' % (AlbumName, Description)
+
+
 
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
@@ -34,7 +41,7 @@ def login():
 
     else:  # 未登陆时，进入登陆界面
         if request.method == 'GET':
-            return render_template('login.html',user=None)
+            return render_template('login.html')
         else:
             input_email = request.form.get('email')
             input_password = request.form.get('password')
@@ -44,7 +51,7 @@ def login():
                 return redirect(url_for('index'))
             else:
                 # 未注册或密码错误
-                return u'Wrong Password or user'
+                return render_template('login.html', Wrong='X')
 
 @app.route('/logout/')
 def logout():
