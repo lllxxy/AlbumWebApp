@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}相册{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/album.css') }}">
+{% endblock %}
+
+{% block main %}
+<div class="row">
+
+    <form name="AddPhotos" method="POST">
+        <div class="col-sm-6 col-md-1">
+            <input class="add-photo" name="imgbtn" type="image" src="{{ url_for('static', filename='images/add_album.jpg') }}">
+        </div>
+    </form>
+
+    <form name="ViewPhotos">
+      {% for photo in photos %}
+        <div class="col-sm-6 col-md-2">
+            <a class="thumbnail">
+            <img class="s_photos" src="{{ url_for('static', filename=photo.path) }}" alt="{{ photo.id }}">
+            </a>
+        </div>
+      {% endfor %}
+    </form>
+
+</div>
+{% endblock %}

@@ -8,12 +8,33 @@
 
 {% block main %}
 <div class="row">
+
+  <form name="ViewAlbum">
+    {% for album in albums %}
+      <div class="col-sm-6 col-md-1">
+        <div class="thumbnail">
+          <a href = "{{ url_for('album', album_id=album.id) }}">
+            {% if album.photos %}
+              <img class="s_photos" src="{{ url_for('static', filename=album.photos[0].path) }}" alt="{{ album.name }}">
+            {% else %}
+              <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="{{ album.name }}">
+            {% endif %}
+            <div class="caption">
+              <h3>{{ album.name }}</h3>
+              <h3>{{ album.description }}</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </form>
+
   <form name="CreateAlbum" method="POST">
     <div class="col-sm-6 col-md-1">
       <div class="thumbnail">
         <img class="s_photos" src="{{ url_for('static', filename='images/add_album.jpg') }}" alt="Add Album">
         <div class="caption">
-          <h3><input type="text" class="form-control" placeholder="New Album Name" name="AlbumName"></h3>
+          <h3><input type="text" class="form-control" placeholder="New Album Name" name="AlbumName" required="required"></h3>
           <input type="text" class="form-control" placeholder="Descriable..." name="Description">
           <h3 class="text-center"><button class="btn btn-primary" role="button">Create</button></h3>
         </div>
